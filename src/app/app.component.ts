@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Model } from './model';
+import { Film, Model } from './model';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +16,11 @@ export class AppComponent {
   getItems(){
     return this.model.items.filter(item => !item.durum);
 
+  }
+  addItem(value){
+    if(value !=""){
+      this.model.items.push(new Film(value,false));
+    }
   }
 
 }
