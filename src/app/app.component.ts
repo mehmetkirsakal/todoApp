@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Model } from './model';
 
 @Component({
   selector: 'app-root',
@@ -6,14 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  user = 'Mehmet';
+  model = new Model();
 
-  items= [
-    {FilmAdi: "Film1", Durum:"No"},
-    {FilmAdi: "Film2", Durum:"No"},
-    {FilmAdi: "Film3", Durum:"No"},
-    {FilmAdi: "Film4", Durum:"No"}
+  getName(){
+    return this.model.user;
+  }
 
+  getItems(){
+    return this.model.items.filter(item => !item.durum);
 
-  ];
+  }
+
 }
